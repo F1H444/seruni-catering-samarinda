@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+
+  --color-orange: #F28C20;
+  --color-orange-dark: #D87613;
+  --color-orange-light: #F4A556;
+
+  --color-green: #3C7A45;
+  --color-green-dark: #2F6138;
+  --color-green-light: #4F8F57;
+
+  --color-gold: #F2D77C;
+  --color-gold-dark: #E6C85F;
+  --color-gold-light: #F5E2A3;
+
+  --color-cream: #FFF7EE;
+  --color-cream-dark: #F5EDE1;
+  --color-cream-mid: #F1E6D1;
+
+  --color-warm-white: #FFFCF7;
+  --color-warm-gray-50: #F9F6F1;
+  --color-warm-gray-100: #F2EEE3;
+  --color-warm-gray-200: #E6DECF;
+  --color-warm-gray-300: #D0C9B6;
+  --color-warm-gray-400: #A89F8C;
+  --color-warm-gray-500: #817A68;
+  --color-warm-gray-600: #625E4F;
+  --color-warm-gray-700: #434037;
+  --color-warm-gray-800: #2A2822;
+  --color-warm-gray-900: #1C1A16;
+}
+
+:root {
+  --background: #FBFAF7;
+  --foreground: #1C1B19;
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+/* Lenis smooth momentum scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D2CCC2;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A9A196;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+::selection {
+  background: #F28C20;
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid #F28C20;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
